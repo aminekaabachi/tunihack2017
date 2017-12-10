@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: #404040  !important;
+    color:#b0aeae !important;
+}
+
+
+
+#app-loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -16px;
+	z-index:1;
+}
+
+.loading-spinner {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 15px;
+  text-align: center;
+}
+
+
+.loading-spinner i:nth-child(1) {
+  float: left;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.loading-spinner i:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.loading-spinner i:nth-child(3) {
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}    
+    
+.loading-spinner i {
+  vertical-align: top;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7D7D8E;
+  opacity: 0;
+  -webkit-animation: pulse ease-in-out 1s infinite alternate;
+  -moz-animation: pulse ease-in-out 1s infinite alternate;
+  animation: pulse ease-in-out 1s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
+    0% { opacity: 0.0}
+    10% { opacity: .20}
+    20% { opacity: .40 }
+    30% { opacity: .60 }
+    40% { opacity: .80 } 
+    50% { opacity: 1.0}
+    60% { opacity: .80}
+    70% { opacity: .60}
+    80% { opacity: .40}
+    90% { opacity: .20}
+    100% { opacity: 0.0}
+}
+
+
+
+.loader {
+    border: 8px solid #fff; /* Light grey */
+    border-top: 8px solid #003e5d; /* Blue */
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.lopos
+{
+
+    position:fixed;
+    top:40%;
+    left:50%;
+
+
+}
+
+pre {
+    background-color: #fff; 
+    border: 0px solid #fff; 
+    font-family: inherit;
+    font-size: 18px ;
+     
+   
+}
+

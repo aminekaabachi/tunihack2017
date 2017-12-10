@@ -1,0 +1,295 @@
+
+body {
+  color: #fff;
+  position: fixed;
+  left: auto;
+  margin-top: auto ; 
+  height:100% ; 
+  min-width: 100% ;
+  max-width: 100% ;
+  background-image:  url("/assets/images/startup3.jpg")  ; 
+  background-size: 100% 100%;
+}
+
+
+.myBackground2 {
+
+ background: rgba(0, 0, 0, 0);
+
+}
+
+
+#poslogo
+{
+  
+  position: absolute;
+  left:  30px;
+  top: -30px;
+ 
+
+}
+
+
+
+
+
+.row{
+  position: absolute ; 
+  left: 65%
+}
+
+.container2{
+color: #fff;
+margin-left: 26% ; 
+margin-top: 5%;
+
+}
+
+ul {
+     list-style-type: none;
+}
+    
+.myBackground {
+position: absolute ;
+left: 0px ;
+  height:100% ; 
+  min-width: 100% ;
+  max-width: 100% ;
+  background-color: rgba(0, 0, 0, 0.42) ; 
+  color: inherit;
+}
+
+.help-block{
+   position: relative ; 
+  left: -50px ;
+}
+
+
+li{
+  margin-top: 40px ;
+}
+
+select{
+  margin-top: -17px ;
+}
+.input{
+background: rgba(255, 255, 255, 0.81);
+position: relative ; 
+left: -70px ;
+  width: 200px ;
+  border-radius: 40px;
+  margin-top:-45px 
+
+
+}
+
+
+
+.input2{
+background: rgba(255, 255, 255, 0.81);
+position: relative ; 
+left: -100px ;
+
+  width: 200px ;
+  border-radius: 40px;
+    margin-top:-45px 
+ 
+}
+
+
+
+.input3{
+  background: rgba(255, 255, 255, 0.81);
+  position: relative ; 
+  left: 0px ;
+  width: 280px ;
+  border-radius: 40px;
+
+   
+}
+.button2 {
+    position: relative ; 
+  left: -50px ;
+  margin-top:12px ;
+  margin-left: 10px ; 
+  outline: none;
+  height: 35px;
+  text-align: center;
+  width: 100px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.31);
+  border: 2px solid rgb(0, 62, 93) ;
+  color: rgb(0, 62, 93) ;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;  
+}
+.button2:hover {
+  color: white;
+  background: rgba(0, 62, 93, 0.46) ;
+}
+.button2:active {
+  letter-spacing: 2px;
+}
+
+.colorerr{
+  position: fixed ; 
+  color: #961414 ;
+}
+
+
+.button3 {
+  position: relative ; 
+  outline: none;
+  height: 35px;
+  text-align: center;
+  width: 280px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 2px solid #700e00 ;
+  color: #700e00 ;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  margin-top:20px; 
+ 
+}
+.button3:hover {
+  color: white;
+  background: rgba(112, 14, 0, 0.55) ;
+}
+.button3:active {
+  letter-spacing: 2px;
+}
+.verifcolor{
+  color: #631919 ;
+  height: 8px ;
+}
+
+.tp{
+margin-top: -15px;
+}
+
+
+
+
+
+.mainsize{
+  position: absolute ;
+  left: 480px ;
+  top :335px ; 
+  font-size: 110px ;
+}
+
+@media only screen and (max-width: 775px) {
+
+.input{
+  position: relative ; 
+  left: 0px ;
+  width: 170px ;
+  border-radius: 40px;
+margin-top:0px ; 
+}
+
+.input2{
+position: relative ; 
+left: 0px ;
+
+  width: 170px ;
+  border-radius: 40px;
+margin-top:0px ; 
+}
+
+
+.button2 {
+  position: relative ; 
+  left: 20px ;
+}
+
+.container2{
+
+position: absolute ; 
+top : 10% ;  
+left: 12% ;
+margin-left:90px  ; 
+
+}
+.input3{
+
+
+  width: 180px ;
+  height: 28px ;
+  
+  
+  
+}
+
+.button3 {
+  width: 180px; 
+
+}
+ .form-group{
+  margin-top:18px ;  
+}
+ 
+}
+
+@media only screen and (min-width: 776px) and (max-width: 1550px) {
+
+  li{
+    margin-top:35px; 
+  }
+  select{
+    margin-top:-13px; 
+  }
+.input{
+  
+  width: 170px ;
+ height: 32px ; 
+ 
+
+}
+
+.input2{
+
+
+  width: 170px ;
+ height: 32px ;
+
+}
+
+
+
+
+.container2{
+
+position: relative ; 
+top : -15% ;  
+left: 15% ;
+margin-left:90px  ; 
+
+}
+.input3{
+
+
+  width: 280px ;
+ 
+  
+}
+
+.button3 {
+  width: 280px; 
+  margin-top:20px; 
+  
+}
+
+
+}

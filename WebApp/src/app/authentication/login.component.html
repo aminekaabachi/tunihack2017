@@ -1,0 +1,126 @@
+
+<body>
+
+
+    <div class="jumbotron myBackground">
+     
+<nav class="navbar  myBackground2">
+             <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"  ><img id="poslogo" src="/assets/images/logo.png" ></a>
+    </div>
+    <form class="form-inline" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    
+    <ul class="nav navbar-nav navbar-right ">
+      <li>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" class=" form-control input2" name="username" [(ngModel)]="model.username" placeholder="Username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+
+      </li>
+      <li>
+                  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input  type="password" class=" form-control input " name="password" [(ngModel)]="model.password" placeholder="Mot de passe" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+      </li>
+
+
+
+
+ 
+
+
+<button [disabled]="loading"   class="button2">Login</button>
+
+<br/><br/><br/>
+<div *ngIf="error" class="colorerr">{{error}}</div>
+      </ul> 
+</form>
+             </div>
+    </nav>
+
+
+
+
+    <div class="container2">
+        <form  *ngIf="insc" name="form" (ngSubmit)="fo.form.valid && inscription()" #fo="ngForm" novalidate>
+<ul>
+    <h1>Inscription</h1>
+
+    <li>
+               <div class="form-group" [ngClass]="{ 'has-error': fo.submitted && !username.valid }">
+               <input   class=" form-control input3 " name="username1"  [(ngModel)]="model.username1" placeholder="Username : exp : nom.prénom" #username1="ngModel" required />
+               <div *ngIf="fo.submitted && !username1.valid" class="verifcolor">Username est obligatoire</div>
+               </div>
+    </li>
+
+
+    <li>
+               <div class="form-group" [ngClass]="{ 'has-error': fo.submitted && !prenom.valid }">       
+               <input   class="tp form-control input3 " name="prenom" [(ngModel)]="model.penom" placeholder="Pénom" #prenom="ngModel"  required />
+               <div *ngIf="fo.submitted && !prenom.valid" class="verifcolor">Prénom est obligatoire </div>
+               </div>
+    </li>
+
+        
+
+    <li>
+               <div class="form-group" [ngClass]="{ 'has-error': fo.submitted && !nom.valid }">      
+               <input  class="tp form-control input3 "name="Nom" [(ngModel)]="model.nom" placeholder="Nom" #nom="ngModel"  required />
+               <div *ngIf="fo.submitted && !nom.valid" class="verifcolor">Nom est obligatoire</div>
+               </div>
+  
+    </li>
+
+        
+    <li>
+            <div class="form-group" [ngClass]="{ 'has-error': fo.submitted && !password1.valid }">       
+            <input  type="password" class="tp form-control input3 " name="password" [(ngModel)]="model.password1" placeholder="Mot de passe" #password1="ngModel" required />
+            <div *ngIf="fo.submitted && !password1.valid" class="verifcolor">Mot de passe est obligatoire</div>
+            </div>       
+    </li>
+    
+ 
+    <li>            
+        <input  type="password" class="tp form-control input3 " name="password2" [(ngModel)]="model.password2" placeholder="confirmer mot de passe"   />
+        <div class="verifcolor" *ngIf="!(model.password2==model.password1)">&nbsp;&nbsp;Verifier le mot de passe</div>
+    </li>
+
+    <li>
+                <select  [(ngModel)]="model.sexe" name="Sexe"  class="form-control  input3" >
+                    <option style="color:aliceblue ;" value="" disabled selected hidden >Sexe</option>
+                    <option value="Homme" >Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+    </li>
+
+                   
+    <li>
+                
+                <select   [(ngModel)]="model.profil" name="profil"  class="form-control  input3"  >
+                    <option value="" disabled selected hidden>Profil</option>
+                    <option  *ngFor="let i of profils" value="{{i.id}}" >{{i.profil}}</option>
+                </select>
+    </li>
+
+            
+        <button  [disabled]="!(model.password2==model.password1)" class="button3">Créer un compte</button>
+    
+                  
+</ul>
+        <div *ngIf="error2" class="colorerr">{{error2}}</div>
+        </form>
+    </div>
+    <div class=" row mainsize" *ngIf="!insc">
+    
+    Se connecter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-up "></span>
+</div>
+</div>
+ 
+
+
+
+</body>
+

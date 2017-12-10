@@ -1,0 +1,128 @@
+<div class="host">
+<div class="colorliste"><b>Liste des candidats</b></div>
+<hr width="-100px" size="700px" />
+<div id='cssmenu'>
+
+<ul   *ngFor="let h of (usr | search : searchText);let in1=index" >
+   <li  *ngIf="in1>=dixinf && in1<dixsup " class=' active  has-sub '><a    (click)="getcondidat(h)"data-toggle="modal" data-target="#myModal2">{{h['prenom']+" "+h['nom']}}</a>
+
+
+    <ul>
+        <span (click)="affecter()" class="btn btn-pheromone btn-sm">AFFECTER  <span class="glyphicon glyphicon-send"> </span></span>
+ 
+
+        <div *ngFor="let r of examens ; let in2=index ">
+        
+             <li >
+               
+                <div class="checkbox">
+                <label>
+                   
+                    <input [(ngModel)]="relation[usr.indexOf(h)][in2]"  (click)="affecter(h.id,r.id)"  type="checkbox" id="{{h.id}}{{r.id}}" >
+                   
+                    <span class="  cr"><i class=" cr-icon glyphicon glyphicon-ok"></i></span>
+                   <div class="sizetitre"> {{r.titre}}</div>
+                </label>
+              
+                </div>
+                
+           
+         
+            </li>
+        
+        </div>
+        
+    </ul>
+    
+   </li>
+    
+
+</ul>
+
+
+
+</div>
+
+
+<div *ngIf="lenghtusr>19">
+<button  (click)="precedent()" class="button2 posbuttonsuit2" >PRÉCÉDENT <span class=" glyphicon glyphicon-menu-up"></span></button>
+<button (click)="suivant()" class="button2 posbuttonsuit" >SUIVANT <span class=" glyphicon glyphicon-menu-down"></span></button>
+</div>
+
+
+ <div class="container  posearch">
+
+      <div class="row ">
+          <div class="col-md-4 col-md-offset-3 ">
+              <form action="" class="search-form">
+                  <div class="form-group has-feedback">
+              		<label for="search" class="sr-only">Search</label>
+  <input type="text" class="form-control" name="search" id="search" placeholder="chercher" [(ngModel)]="searchText">
+  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+     <div class="modal fade " id="myModal2" role="dialog"  >
+                            
+                                <div class="modal-dialog ">
+                                  <div class="modal-content">
+                                      <div class="modal-body">
+                                        <h3><b>Prénom :</b>  {{condidat_prenom}}</h3>
+                                          <hr width="100%">
+                                          <h4><b>Nom :</b>  {{condidat_nom}}</h4>
+                                          <hr width="100%">
+                                        
+                                          <h4><b>Profil :</b>{{condidat_statut}} </h4>
+                                          <hr width="100%">
+                                            <table *ngIf="condidat_score.length" class="table table-striped">
+                                                <thead>
+                                                 <tr>
+                                                     <td ><b>Examen :</b></td>
+                                                    <td *ngFor="let s of condidat_score"><b>{{s.examen}}</b></td>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td *ngIf="condidat_score"><b>Note :</b></td>
+                                                    <td *ngFor="let s of condidat_score">{{s.note}}%</td>
+                                                </tr>
+                                                </tbody>
+
+                                            </table>
+                                          <hr width="100%">
+                                         <h4><b>  Commentaire : </b> </h4>
+                                          <div class="form-group">
+                                              <textarea  [(ngModel)]="condidat_commentaire" required="required"  placeholder="Ajouter un commentaire"></textarea>
+                                              <label class="control-label" for="textarea"></label><i class="bar"></i>
+                                        </div>
+                                         
+                                      </div>
+                                    
+                                      <div class="modal-footer">
+                                          <div *ngIf="status=='6f2542120273928a64911d1d285ae6f75fe58cfa35c91dd18ab2b55216b2ecb1'">
+                                       <div *ngIf="condidat_type=='candidat'|| condidat_type=='manager' "  >
+                                        <button  (click)="ajoutadmin()" class="button1" data-dismiss="modal" ><div class="okpos2">Ajouter comme administrateur de site</div></button>
+                                       </div>
+                                     <div *ngIf="condidat_type=='admin' "  >
+                                        <button  (click)="retireradmin()" class="button1" data-dismiss="modal" ><div class="okpos2">Retirer de la liste des administrateurs</div></button>
+                                       </div>
+                                    <div *ngIf="condidat_type=='candidat' "  >   
+                                        <button  (click)="ajoutmanager()" class="button3" data-dismiss="modal" ><div class="okpos2" >Ajouter comme manager</div></button>
+                                    </div>  
+                                      <div *ngIf="condidat_type=='manager' "  >   
+                                        <button  (click)="retirermanager()" class="button3" data-dismiss="modal" ><div class="okpos2" >Retirer de la liste des managers</div></button>
+                                    </div>   
+                                          </div>
+                                        <button (click)="envoi_comment()"  type="button" [class.bt]="status=='6f2542120273928a64911d1d285ae6f75fe58cfa35c91dd18ab2b55216b2ecb1'" data-dismiss="modal"><div class="okpos2">OK</div></button>
+                                      </div>
+                                     
+                                  </div>
+                                </div>
+                          </div>
+   

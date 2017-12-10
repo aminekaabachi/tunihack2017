@@ -1,0 +1,133 @@
+@import url( https://fonts.googleapis.com/css?family=Inconsolata);
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+
+
+
+.navbar-brand
+{
+  font-family: 'Bungee', cursive;
+  padding-left:  30px;
+  color:#fff;
+}
+
+.navbar-brand span {
+  color:#dd0b0b;
+}
+
+
+.myBackground2 {
+
+ background: #000000;
+ border:0 !important
+}
+
+.fbar {
+color: #fff ; 
+}
+
+.fontcolor{
+  font-size: 18px ;
+  color: #ccc ;
+ font-family: 'Inconsolata', monospace;
+ margin-left:10px ; 
+
+}
+
+.fontcolor:hover{
+
+  color: #fff ;
+
+
+}
+
+
+.mapspos{
+    position: relative;
+  top: 1px;
+}
+.scolor{
+  position: relative;
+  top: 12px;
+  left: -20px ;
+    font-size: 24px ;
+  color: #fff ;
+    font-family:   monospace;
+
+}
+
+.scolor:hover{
+  position: relative ; 
+  top : 16px ;
+  
+}
+
+.dropdown-menu{
+  position: absolute ; 
+  top:50px ;
+  left: -440px ;
+  width: 450px ;
+ 
+  text-align: center ;
+  overflow-wrap:break-word;
+  color: #601919 ;
+  background-color: rgba(255, 255, 255, 0.83) ;
+  padding-left: 1em;
+  padding-right: 1em ;
+}
+
+.container3{
+  width: 300px ;
+overflow-wrap: break-word ;
+}
+
+.badge-notify{
+   background:#9c0303 ;
+   position:absolute;
+   top:8px;
+   left: -22px ;
+
+  }
+
+
+.managerpos{
+  position: relative ; 
+
+}
+
+
+
+@media only screen and (min-width: 776px) and (max-width: 1550px) {
+nav{
+ 
+  max-height: 50px ;
+  min-height: 25px
+
+}
+
+.fontcolor{
+  font-size: 20px ;
+
+
+}.managerpos{
+  position: relative ; 
+  top: 4px ;
+}
+.scolor{
+  position: relative;
+  top: 12px;
+  left: -8px ;
+    font-size: 20px ;
+  color: #fff ;
+}
+img{
+width: 120px ;   
+height: 30px ; 
+}
+li{
+  position: relative ; 
+  top: -6px; 
+}
+
+
+}

@@ -1,0 +1,126 @@
+ <app-header></app-header>     
+<div *ngIf="!ques[0]">
+
+     
+    
+        <section id="plans">
+         
+        <div class="container2">
+            
+          <div class="row">
+            <div *ngFor="let r of (examen | search : searchText1) ">
+                <div class="col-md-3 text-center">
+                    <div class="panel   panel-pricing">
+                        <div class="panel-heading">
+                            
+                            {{r["titre"]}}
+                        </div>
+                        <a  (click)="getdonnee(r['id'],id)" >
+                        <div class="panel-body ">
+                          {{r["description"]}}
+                        </div>
+                        </a>
+
+                        <!--<ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                        </ul>-->
+
+                        <div class="panel-footer">
+                              <button  (click)="getdonnee(r['id'],id)" class=" button posbuttonsuit" id="button"><span class="glyphicon glyphicon-hand-right rightcolor "> </span> Passer l'examen</button>
+                        </div>
+                        
+
+                        
+
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+     </div>
+
+     <div   class="container " >
+       <div *ngIf="ques[0]" class="container">
+    <div *ngIf="this.time.getHours()||this.time.getSeconds()||this.time.getMinutes()" id="js-timer" class="timer" [class.fintimer]="time.getHours()<1  && time.getMinutes()<10 && time.getSeconds()%2==1 "   [class.fintimer2]="time.getHours()<1 && time.getMinutes()<20 && time.getMinutes()>=10  && time.getSeconds()%4==1 "  role="timer" >
+	<span class="timer__item" id="timer-hours">
+				<span class="timer__value">{{time.getHours()}}</span>
+				<span class="timer__label">
+					Hours
+				</span>
+			</span>
+
+			<span class="timer__item" id="timer-minutes">
+				<span class="timer__value">{{time.getMinutes()}}</span>
+				<span class="timer__label">
+					Minutes
+				</span>
+			</span>
+
+			<span class="timer__item" id="timer-seconds">
+				<span class="timer__value">{{time.getSeconds()}}</span>
+				<span class="timer__label">
+					Seconds
+				</span>
+			</span>
+      
+		</div>
+
+
+<!-- 
+    <div *ngIf="!time.getHours() && !time.getMinutes() && !time.getSeconds()">
+     
+      
+     
+     </div>
+     -->
+    
+    
+    <div id="box-shadow-object" class="jumbotron  myBackground" >
+    <div class="group">
+                <a  (click)="fermerexamen()" type="button" class="close posclose " >&times;</a>
+        <h1> {{exam.titre}}</h1> 
+        <hr width="100%">
+        <h4>{{exam.description}}</h4>
+        <br /><br /><br /><br />
+        <hr width="100%" > 
+        <div *ngFor="let i of ques ; let k=index">
+             <h3><b><pre>{{k+1}}.{{i.ques}}</pre></b></h3>
+             <hr width="100%" > 
+             <div *ngIf="i.type=='qcm'">
+                  <div *ngFor="let j of i.optlabel ;let h=index">
+                     
+                      <div class="psize">
+                           
+                            <input [(ngModel)]="i.correction[h]"   type="checkbox" id="test{{k}}{{h}}" />
+                         <label for="test{{k}}{{h}}"><p class="divpsize">&nbsp;&nbsp;{{j}}</p></label></div>
+                  
+                  </div>
+                    
+             </div>
+               <div *ngIf="i.type=='text'">
+                     <div class="form-group">
+                        <textarea  [(ngModel)]="i.correctiontype2"required="required"  placeholder="Réponse"></textarea>
+                        <label class="control-label" for="textarea"></label><i class="bar"></i>
+                     </div>
+                                         
+             </div>
+        </div> 
+       </div>
+       </div>
+       <button  class="button2" (click)="envoyer()" type="submit">Envoyer Réponse</button>
+       </div>
+        
+       </div>
+
+
+
+       
+
+   
+     
+ 

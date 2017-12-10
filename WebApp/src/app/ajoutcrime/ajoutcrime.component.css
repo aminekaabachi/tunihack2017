@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.formulaire {
+	width: 626px;
+	background: #174038;
+	margin: auto;
+	padding: 15px;
+	text-align: center;
+}
+
+h1 {
+	padding-top: 25px;
+	color: white;
+	font-family: 'Helvetica', sans-serif;
+}
+
+form {
+	margin: auto;
+	display: block;
+	flex-direction: column;
+	padding: 0px 20px 0 20px;
+}
+
+#formulaire {
+	display: flex;
+}
+
+p {
+	font-style: italic;
+	font-size: 0.95em;
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	color: transparent;
+	color: #888;
+}
+
+input[type=password], input[type=email], input[type=text] {
+	width: 100%;
+	margin-top: 25px;
+	padding: 20px 20px;
+	height: 1.2em;
+	background-color: inherit;
+	border: 1px solid white;
+	box-sizing: border-box;
+}
+
+input[type=password]:focus, input[type=email]:focus, input[type=text]:focus{
+	background-color: rgba(19, 143, 106, 0.3);
+	color: white;
+}
+
+#connect{
+	background-color: #218868	;
+	border: none;
+	height: 5em;
+	padding: 20px 127px 20px 127px; 
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+#start {
+	margin-top: 35px;
+	background-color: #218868	;
+	border: none;
+	height: 5em;
+	padding: 20px 127px 20px 127px; 
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.top-buttons {
+	background-color: #218868	;
+	border: none;
+	margin-top: 20px;
+	padding: 20px 126px 20px 126px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+input[type=text]:hover, input[type=submit]:hover, #connect:hover, input[type=password]:hover, input[type=email]:hover, #start:hover{
+	background-color: rgba(33, 136, 104, 0.4)
+}
+
+#names {
+	display: flex;
+}
+
+#lastname {
+	margin-left: 20px;
+}
+
+#form2 {
+	margin-bottom: 20px;
+}
+
+.btn{
+	position: absolute ; 
+	margin-left: 1045px  
+}

@@ -1,0 +1,192 @@
+<app-header></app-header>
+<div *ngIf="page1"> 
+
+         <div id="wrap">
+  <form action="" autocomplete="on">
+  <input id="search2" name="search" type="text1" placeholder="Chercher un Candidat"  [(ngModel)]="searchText1" ><input id="search_submit" value="Rechercher" type="submit" >
+  </form>
+</div>
+<div class="container3">
+   <div class="row">
+    <div *ngFor="let u of( usrs | search : searchText1) "> 
+                <div class="col-md-2 text-center floating">
+          <a type="button" (click)="theusr(u)" data-toggle="modal" data-target="#myModal1" class="removepos"><span class="glyphicon glyphicon-remove " ></span></a>
+          <div *ngIf="u.sex=='femme'; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock><a  (click)="getexamusr(u.id)"  class="glyphicon-pricing " ><figure><img  style="width: 130px ;   height: 130px ; "  src="/assets/images/usr6.png" >
+              <figcaption><div class="namecolor">{{u["prenom"]}}  {{u["nom"]}}</div></figcaption></figure>  </a></ng-template>
+          <ng-template #elseBlock><a  (click)="getexamusr(u.id)"  class="glyphicon-pricing " ><figure><img style="width: 130px ;   height: 130px ; " src="/assets/images/usr5.png" >
+             <figcaption> <div class="namecolor">{{u["prenom"]}}  {{u["nom"]}}</div> </figcaption></figure> </a></ng-template>
+          
+
+ 
+                <br/>
+                 
+    </div>
+  </div>        
+</div>
+</div>
+<!--modal-->
+        <div class="modal fade " id="myModal1" role="dialog"  >
+           <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-body">
+              <h4><b>Voulez vous vraiment supprimer les reponses de  {{usr["nom"]}}  {{usr["prenom"]}}!</b> <span class="glyphicon glyphicon-floppy-remove xcolor2"></span></h4>
+                 </div>
+               <div class="modal-footer">
+             <button (click)="supprepusr()"  type="button" class="btn btn-danger" data-dismiss="modal">Oui</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+            </div>
+                                     
+             </div>
+             </div>
+            </div>
+  <!--modal-->
+                </div>
+
+<div *ngIf="!page1"> 
+
+  <div  *ngIf="!ques[0]  ; then thenBlock else elseBlock "> </div>
+  
+   <ng-template #thenBlock>
+       <div id="wrap">
+  <form action="" autocomplete="on">
+  <input id="search2" name="search" type="text1" placeholder="Chercher un examen"  [(ngModel)]="searchText2" ><input id="search_submit" value="Rechercher" type="submit" >
+  </form>
+</div>
+
+      <a  (click)="page0()"> <span class="glyphicon glyphicon-arrow-left spansize"></span></a>
+       <section id="plans">
+        <div class="container2">
+            
+          <div class="row">
+            <div *ngFor="let r of (examen | search : searchText2) ">
+                <div class="col-md-3 text-center">
+                
+        
+                
+                    <div class="panel   panel-pricing"  >
+                      
+                        <div class="panel-heading">
+                        <a  (click)="theexam(r['id'])" type="button"data-toggle="modal" data-target="#myModal3" class="posclose close  " >&times;</a>
+                            {{r["titre"]}}
+                        </div>
+                            <a (click)="detail(r['id'])">
+                        <div class="panel-body ">
+                        <div *ngIf="r['note']"> Taux de réussite:  {{r["note"]}} %</div>
+                        <div *ngIf="!r['note']"> Taux de réussite: -- %</div>
+                        </div>
+                           </a>
+                        <!--<ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> Personal use</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> Unlimited projects</li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 27/7 support</li>
+                        </ul>-->
+
+                        <div class="panel-footer">
+                              <button  (click)="autocorrection(r['id'])" class=" button posbuttonsuit" id="button">Lancer la correction automatique </button>
+                        </div>
+                        
+
+                        
+
+                    </div>
+                 <br/><br/>
+                </div>
+            </div>
+        </div>
+      </div>
+       </section>
+      <!--modal2-->
+        <div class="modal fade " id="myModal3" role="dialog"  >
+           <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-body">
+              <h4><b>Voulez vous vraiment supprimer cette réponse</b> <span class="glyphicon glyphicon-floppy-remove xcolor2"></span></h4>
+                 </div>
+               <div class="modal-footer">
+             <button (click)="suppexamusr()"  type="button" class="btn btn-danger" data-dismiss="modal">Oui</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+            </div>
+                                     
+             </div>
+             </div>
+            </div>
+  <!--modal2-->
+   </ng-template>
+   <ng-template #elseBlock>  
+       <div class="container">
+    <div id="box-shadow-object" class="jumbotron  myBackground" >
+    <div class="group">
+        <a  (click)="fermerexamen()" type="button" class="close posclose " >&times;</a>
+
+          <h2 >Note : {{note}}/{{bareme}}</h2>
+        <button  class="button2" (click)="calculernote()" type="submit">Calculer la note</button>
+        <h1> {{exam.titre}}</h1> 
+        <hr width="100%">
+        <h4>{{exam.description}}</h4>
+        <br /><br /><br /><br />
+        <hr width="100%" > 
+        <div *ngFor="let i of ques ; let k=index">
+             <h3><b><pre>{{k+1}}.{{i.ques}}&nbsp;&nbsp;&nbsp;</pre></b></h3>
+             <hr width="100%" > 
+             <div *ngIf="i.type=='qcm'">
+                  <div *ngFor="let j of i.optlabel ;let h=index">
+                     
+                      <div class="psize">
+                         <div *ngIf="i.juge[h] ; then thenB else elseB "></div>
+                        <ng-template #thenB><span class="glyphicon glyphicon-ok-sign  jugepos2"></span></ng-template>
+                        <ng-template #elseB><span class="glyphicon glyphicon-remove-sign jugepos"></span></ng-template>
+                            <input [(ngModel)]="i.correction[h]"   type="checkbox" id="test{{k}}{{h}}"  disabled />
+                         <label for="test{{k}}{{h}}"><p class="divpsize">&nbsp;&nbsp;{{j}} </p>
+                        </label></div>
+                   
+                 
+                  
+                  </div>
+              <div class="close "> 
+            <input type="number"   [(ngModel)]="i.note"  disabled >
+           <input type="number" [(ngModel)]="i.bareme"  disabled >
+                 </div>
+                    
+             </div>
+               <div *ngIf="i.type=='text'">
+                  <pre>
+{{i.correctiontype2}}
+                     </pre> 
+                 <div class="close "> 
+              <a (click)="correctionques(i)"data-toggle="modal" data-target="#myModal10"><span class="glyphicon glyphicon-eye-open"></span></a>    
+            <input type="number"  [(ngModel)]="i.note"   >
+           <input type="number"  [(ngModel)]="i.bareme"  disabled >
+                 </div>                        
+             </div>
+        </div> 
+       </div>
+       </div>
+       
+       </div>
+        
+      
+   </ng-template>
+</div>
+
+
+<div class="modal fade " id="myModal10" role="dialog"  >
+                            
+                                <div class="modal-dialog ">
+                                  <div class="modal-content">
+                                    <div class="modal-header" name="myModal10">
+                                      <h3>La correction de cette question est :</h3>
+                                    </div>
+                                      <div class="modal-body" name="myModal10">
+                                        
+                                            
+                                        {{aide}}
+                                            
+    
+                                      </div>
+                                  
+                                     
+                                  </div>
+                                </div>
+                        </div>
+  <app-menu [examens]="examens"></app-menu>

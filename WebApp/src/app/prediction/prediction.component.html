@@ -1,0 +1,22 @@
+
+<app-header></app-header>
+<div class="container" style="width:100%; padding:0; overflow-y:hidden">
+    <div class="row">
+         <div class="col-sm-6">
+            <agm-map #map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                  <agm-marker *ngFor="let item of dis; let i = index" [latitude]="lats[i]" [longitude]="lngs[i]" label="{{this.Math.floor(item/20)}}"></agm-marker>
+            </agm-map>
+            
+        </div>
+
+        <div class="col-sm-6">
+            <br> <br> <br>
+            <h2>  Prediction de la première semaines de 2017</h2>
+            <nvd3 [options]="options" [data]="data"></nvd3>
+        </div>
+
+    </div>
+</div>
+
+
+

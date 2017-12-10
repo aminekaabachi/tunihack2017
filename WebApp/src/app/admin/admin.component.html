@@ -1,0 +1,21 @@
+
+<app-header></app-header>
+
+<agm-map #map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker *ngFor="let item of items | async" [latitude]="item.lat" [longitude]="item.long"  iconUrl="https://i.imgur.com/U7WVjjO.gif"></agm-marker>
+</agm-map>
+
+    <a  routerLink="/ajoutcrime" >
+  <nav class="menu">
+    <input class="menu-button" id="menu-button" type="checkbox"   />
+      <label class="menu-button-icon" for="menu-button">
+           <span class="glyphicon glyphicon-plus posplus"></span>
+    </label>
+
+  </nav>
+    </a>
+
+
+
+
+

@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="posadmin">
+<div *ngIf="page==1">
+  <div id="wrap">
+  <form action="" autocomplete="on">
+  <input id="search2" name="search" type="text1" placeholder="Chercher un examen"  [(ngModel)]="searchText1" ><input id="search_submit" value="Rechercher" type="submit" >
+  </form>
+</div>
+<div class="container3">
+          <div class="row">
+<div *ngFor="let i of( profils   | search : searchText1)">
+          <div class="col-md-3 text-center">
+                    <div class="panel   panel-pricing">
+                       <a  (click)="supprofil(i['id'])" type="button" class="posclose3 close   " >&times;</a>
+                        <div class="panel-heading">
+                         
+                        <div class="profilsize">{{i["profil"] }}</div>
+                        </div>
+                      <a (click)="getdetailprofil(i['id'])">
+                       <div class="panel-body ">
+                         {{i["description"]}}
+                        </div>
+                      </a>
+                    </div>
+                       <br/><br/> 
+          </div>
+</div>
+       <nav class="menu">
+    <input class="menu-button" id="menu-button" type="checkbox"   />
+    <label class="menu-button-icon" for="menu-button">
+              <span class="hamburger hamburger-bar-1"></span>
+            <span class="hamburger hamburger-bar-2"></span>
+            <span class="hamburger hamburger-bar-3"></span>
+    </label>
+    <a  (click)="getmanager()" class="menu-item"  >
+    <i class="i"><span class="glyphicon glyphicon-plus"></span></i></a>
+    <a routerLink="/admin" class="menu-item">
+    <i  class="i1">Examen</i></a>
+  </nav>    
+</div>
+</div>
+</div>
+</div>
+
+<div *ngIf="page==2">
+  <div class="container2">
+    
+              <button  (click)="fermerajout()" type="button" class="close posclose " >&times;</button>
+              <h1>Créer un nouveau profil </h1>
+              <br/><br/><br/><br/>
+              <input [(ngModel)]="profil" type="text" class=" form-control input2"  placeholder="Profil" required />
+              <br/>
+              <input [(ngModel)]="description" type="text" class=" form-control input2"  placeholder="Description" required />
+              <br/>
+              <h3><b>Owner :</b></h3>
+               <div class="tailleowner" *ngFor="let m of manager; let k=index">
+              <input  [(ngModel)]="m.value" name="owner" type="checkbox" value="m['id']" id="test{{k}}"  /> <label for="test{{k}}" ><div class="m">{{m["prenom"]}} {{m["nom"]}}</div></label><br/>
+              </div>
+            <br/><br/>
+              <div *ngIf="!detail ;then thenblock else elseblock"></div>
+            <ng-template #thenblock><button #thenblock  (click)="postprofil()"  type="submit"  class="button2" data-dismiss="modal">OK</button></ng-template>
+           <ng-template #elseblock> <button #elseblock (click)="modifier()"  type="submit"  class="button2" data-dismiss="modal">Modifier</button></ng-template>
+
+
+  </div>
+</div>
+<app-menu [examens]="examen"></app-menu>

@@ -1,0 +1,44 @@
+			
+<app-header></app-header>
+<br /> <br /><br /> <br />
+<div class="container" >
+  <div class="row">
+    <ul>
+      <li><a   routerLink="/analyse/2012" >2012</a></li>
+      <li><a   routerLink="/analyse/2013" >2013</a></li>
+      <li><a   routerLink="/analyse/2014" >2014</a></li>
+      <li><a   routerLink="/analyse/2015" >2015</a></li>
+      <li class="active"><a   routerLink="/analyse/2016" >2016</a></li>
+    </ul>
+  </div>
+    <div class="row">
+    
+    <div class="col-sm-6">
+      <h2>Crimes par mois</h2>
+      <nvd3 [options]="options" [data]="data"></nvd3>
+    </div>
+
+       <div class="col-sm-6">
+       <h2>Crimes par jour</h2>
+      <nvd3 [options]="options2" [data]="data2"></nvd3>
+    </div>
+    </div>
+
+      <div class="row">
+    
+    <div class="col-sm-6">
+      <h2>Crimes par types</h2>
+      <nvd3 [options]="options3" [data]="data3"></nvd3>
+    </div>
+
+       <div class="col-sm-6">
+       <h2>Crimes par jour de semaine</h2>
+       <nvd3 [options]="options4" [data]="data4"></nvd3>
+    </div>
+
+    </div>
+
+</div>
+
+
+

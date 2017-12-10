@@ -1,0 +1,33 @@
+{
+	"name": "MyApp",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"axios": "^0.17.1",
+		"chance": "^1.0.12",
+		"firebase": "^4.8.0",
+		"native-base": "^2.3.3",
+		"random-number": "^0.0.9",
+		"react": "16.0.0",
+		"react-native": "0.50.4",
+		"react-native-camera": "^0.12.0",
+		"react-native-easy-grid": "^0.1.15",
+		"react-native-modal": "^4.1.1",
+		"react-native-qrcode-scanner": "^0.0.25",
+		"react-native-vector-icons": "^4.4.2",
+		"react-navigation": "^1.0.0-beta.21"
+	},
+	"devDependencies": {
+		"babel-jest": "21.2.0",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.2.1",
+		"react-test-renderer": "16.0.0"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
